@@ -1,0 +1,142 @@
+body{
+    padding: 0%;
+    margin: 0%;
+
+}
+#dad{
+    display: grid;
+    grid-template-rows: 10vh 90vh;
+    grid-template-columns: 70vw 29.99vw;
+    grid-template-areas:"Hubs Hubs"
+                        "List Opt"
+}
+#HubsPlace{
+    grid-area: Hubs;
+    display: flex;
+    flex-direction: row;
+    
+}
+.Hubs{
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    background-color: silver;
+    cursor: pointer;
+    align-items: center;
+    border: 1px solid black;
+    font-size: 150%;
+    text-align: center;
+}
+.Hubs:nth-child(2){
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.Hubs:hover{
+    transition: 1.0s;
+    background-color: cyan;
+}
+#TaskList{
+    grid-area: List;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+
+}
+.Task{
+    width: 98.5%;
+    height: auto;
+    position: relative;
+    border: 2px solid black;
+    color: white;
+    padding-left: 1%;
+    background-color: rgb(55, 33, 153);
+    
+}
+#OptionsPlace{
+    position: relative;
+    grid-area: Opt;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: black;
+}
+.Options{
+    position: relative;
+    background-color: silver;
+    border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+    padding: 2% 2% 2% 2%;
+    border-radius: 8px;
+    color:black;
+    width: 50%;
+}
+.Options:hover{
+    transition: 1.0s;
+    background-color: cyan;
+}
+#AddTaskForm{
+    width: 30%;
+    position: absolute;
+    height: 50%;
+    top: 20%;
+    display: none;
+    height: 60%;
+    background-color: silver;
+    padding: 1% 1% 1% 1%;
+    border-radius: 12px;
+    border: 1px solid black;
+    z-index: 10;
+    left: 35%;
+}
+.inputZone{
+    border-radius: 8px;
+
+}
+#ExitFromAddTasks{
+    left: 89%;
+    cursor: pointer;
+    top: 0%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+.NewTaskButton{
+    width: auto;
+    height: auto;
+    padding: 10px 10px 10px 10px;
+    transform: translateY(19%);
+    cursor: pointer;
+}
+#TurnOnNotifications{
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    height: 50%;
+    top: 20%;
+    display: none;
+    z-index: 10;
+    background-color: silver;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 3px 3px 8px black;
+}
+.accept{
+    padding: 2% 3% 2% 3%;
+    border-radius: 8px;
+    border: 1px solid black;
+    cursor: pointer;
+
+    background-color: rgb(4, 240, 24);
+    font-weight: bold;
+}
+.denie{
+    padding: 2% 3% 2% 3%;
+    border-radius: 8px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(240, 4, 43);
+}

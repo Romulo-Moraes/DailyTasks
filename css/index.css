@@ -1,0 +1,58 @@
+body{
+    padding: 0%;
+    margin: 0%;
+    overflow: hidden;
+}
+
+#dad{
+    display: grid;
+    grid-template-rows: 10vh 90vh;
+    grid-template-columns: 33.33vw 33.33vw 33.33vw;
+    background-color: black;
+    grid-template-areas:"Hubs Hubs Hubs"
+                        ". wellCome ."
+                        ". . ."
+}
+#WellComeMessage{
+    grid-area: wellCome;
+    color: white;
+    display: flex;
+    font-family: Goldman;
+    text-align: center;
+    align-items: center;
+}
+#alignMessage{
+    position: relative;
+    color:white;
+    font-size: 200%;
+}
+#HubsPlace{
+    grid-area: Hubs;
+    display: flex;
+    flex-direction: row;
+    
+}
+.Hubs{
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    background-color: silver;
+    cursor: pointer;
+    align-items: center;
+    border: 1px solid black;
+    font-size: 150%;
+    text-align: center;
+}
+.Hubs:hover{
+    transition: 1.0s;
+    background-color: cyan;
+}
+.toAlign{
+    position: relative;
+}
+.toCenter{
+    text-align: center;
+    font-size: 80%;
+    color: cyan;
+}

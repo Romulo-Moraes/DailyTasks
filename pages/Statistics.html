@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="./../css/Statistics.css">
+    <link rel="icon" href="./../images/Task's Manager Icon.jpg">
+</head>
+<body>
+    <div id="AddTaskForm">
+        <div id="ExitFromAddTasks">
+            <img src="./../images/exit.jpg" width="100%" height="100%" onclick="exitTasks()" alt="">
+        </div>
+        <button onclick="config()">clear tasks</button>
+        <h1>Titulo:</h1>
+        <input type="text" class="inputZone" id="Title">
+        <h1>Data de encerramento:</h1>
+        <input type="datetime-local" id="TimeOut" class="inputZone">
+        <h1>Descrição:</h1>
+        <textarea width="100%" class="inputZone" id="Description"></textarea>
+        <br>
+        <button onclick="NewTask()" class="NewTaskButton">Enviar</button>
+    </div>
+    <div id="dad">
+        <div id="HubsPlace">
+            <div class="Hubs" onclick="window.location.replace('/School')"><p>Escolar</p></div>
+            <div class="Hubs" onclick="window.location.replace('/Personal')"><p>Pessoal</p></div>
+            <div class="Hubs" onclick="window.location.replace('/Daily')"><p>Diárias</p></div>
+            <div class="Hubs" onclick="window.location.replace('/Delay')"><p>Em atraso</p></div>
+            <div class="Hubs"><p>Estátisticas</p></div>
+        </div>
+        <div id="TaskList">
+            <!--
+            <div class="Task">
+                <h2>Titulo: Tarefa de matemática</h2>
+                <h2>Descrição: Colocar em prática oque foi passado na aula.</h2>
+                <h2>Inicio da atribuição: 22:31 22/11/2020</h2>
+                <h2>Data de encerramento: 23:59 26/11/2020</h2>
+            </div>
+            -->
+            
+        </div>
+        <div id="Statistics">
+            <div id="Attributed" class="Communs">
+                <div class="ToMatch2">
+                    <h1>Tarefas passadas</h1>
+                    <h1 id="allAddedTasks">0</h1>
+                </div>
+            </div>
+            <div id="FinishedRate" class="Communs">
+                <h1>Porcentagem de concluidas</h1>
+                <div class="ProgressBar" id="valueOfFinishedRate">
+                    <p class="value" id="value1">100% </p>
+                   
+                </div>
+                <div class="ToMatch" id="pourcentOfCompleted">Finish:10 Total:10</div>
+            </div>
+            <div id="ExcludedTasks" class="Communs">
+                <div class="ToMatch2">
+                    <h1>Tarefas excluidas</h1>
+                    <h1 id="allRemoved">0</h1>
+                </div>
+            </div>
+            <div id="RateSchool" class="Communs">
+                <h1>Concluidas (School)</h1>
+                <div class="ProgressBar" id="progressBarValueOfRateSchool">
+                    <p class="value" id="value2">100%</p>
+                    
+                </div>
+                <div class="ToMatch" id="RateSchoolInfo">Finish:10 Total:10</div>
+            </div>
+            <div id="RatePersonal" class="Communs">
+                <h1>Concluidas (Personal)</h1>
+                <div class="ProgressBar" id="PersonalProgressBarValue">
+                    <p class="value" id="value3">100%</p>
+                </div>
+                <div class="ToMatch" id="PersonalInfo">Finish:10 Total:10</div>
+            </div>
+            <div id="RateDaily" class="Communs">
+                <h1>Concluidas (Daily)</h1>
+                <div class="ProgressBar" id="DailyProgressBarValue">
+                    <p class="value" id="value4">100%</p>
+                </div>
+                <div class="ToMatch" id="DailyInfo">Finish:10 Total:10</div>
+            </div>
+            <div id="RateDelayed" class="Communs">
+                <h1>Concluidas (Delayed)</h1>
+                <div class="ProgressBar" id="DelayedProgressBarValue">
+                    <p class="value" id="value5">100%</p>
+                </div>
+                <div class="ToMatch" id="DelayedInfo">Finish:10 Total:10</div>
+            </div>
+            <div id="DailyDelayed" class="Communs">
+                <div class="ToMatch2">
+                    <h1>Atrasadas (Daily)</h1>
+                    <h1 id="DailyDelayedValue">0</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="TurnOnNotifications">
+        <h1>Hello! Esse aplicativo consegue te avisar se você está com tarefas pendentes, gostaria de ativar as notificações?</h1>
+        <button class="accept" onclick="enableNotification()">Sim!</button>
+        <button class="denie">Não!</button>
+    </div>
+    <script src="./../js/functions/whatsPage.js"></script>
+    <script src="./../js/functions/whoIsHigher2.js"></script>
+    <script src="./../js/functions/DismemberDate.js"></script>
+    <script src="./../js/functions/FindDelayedTasks.js"></script>
+    <script src="./../js/functions/Notifications.js"></script>
+    <script src="./../js/functions/DateHigher.js"></script>
+    <script src="./../js/functions/RefreshDailyTasks.js"></script>
+    <script src="./../js/functions/CreateAllStatisticsDependencies.js"></script>
+    <script src="./../js/StatisticsScript.js"></script>
+</body>
+</html>

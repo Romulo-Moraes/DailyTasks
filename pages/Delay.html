@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchoolTasks</title>
+    <link rel="stylesheet" href="./../css/Delay.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" href="./../images/Task's Manager Icon.jpg">
+</head>
+<body>
+    <div id="AddTaskForm">
+        <div id="ExitFromAddTasks">
+            <img src="./../images/exit.jpg" width="100%" height="100%" onclick="exitTasks()" alt="">
+        </div>
+        <button onclick="config()">clear tasks</button>
+        <h1>Titulo:</h1>
+        <input type="text" class="inputZone" id="Title">
+        <h1>Data de encerramento:</h1>
+        <input type="datetime-local" id="TimeOut" class="inputZone">
+        <h1>Descrição:</h1>
+        <textarea width="100%" class="inputZone" id="Description"></textarea>
+        <br>
+        <button onclick="NewTask()" class="NewTaskButton">Enviar</button>
+    </div>
+    <div id="dad">
+        <div id="HubsPlace">
+            <div class="Hubs" onclick="window.location.replace('/School')"><p>Escolar</p></div>
+            <div class="Hubs" onclick="window.location.replace('/Personal')"><p>Pessoal</p></div>
+            <div class="Hubs" onclick="window.location.replace('/Daily')"><p>Diárias</p></div>
+            <div class="Hubs"><p>Em atraso</p></div>
+            <div class="Hubs" onclick="window.location.replace('/Statistics')"><p>Estátisticas</p></div>
+        </div>
+        <div id="TaskList">
+            <!--
+            <div class="Task">
+                <h2>Titulo: Tarefa de matemática</h2>
+                <h2>Descrição: Colocar em prática oque foi passado na aula.</h2>
+                <h2>Inicio da atribuição: 22:31 22/11/2020</h2>
+                <h2>Data de encerramento: 23:59 26/11/2020</h2>
+            </div>
+            -->
+            
+        </div>
+        <div id="OptionsPlace">
+            <div class="Options" onclick="removeAndFinishDelayedTask(false)">
+                <h3>Remover Task</h3>
+            </div>
+            <div class="Options" onclick="removeAndFinishDelayedTask(true)">
+                <h3>Concluir Task</h3>
+            </div>
+        </div>
+    </div>
+    <div id="TurnOnNotifications">
+        <h1>Hello! Esse aplicativo consegue te avisar se você está com tarefas pendentes, gostaria de ativar as notificações?</h1>
+        <button class="accept" onclick="enableNotification()">Sim!</button>
+        <button class="denie">Não!</button>
+    </div>
+    <script>
+            var selectedTask = null
+            var selectedType = null
+            var lastSelectedTask = null
+            var lastSelectedType = null
+    </script>
+    <script src="./../js/functions/whatsPage.js"></script>
+    <script src="./../js/functions/LoadAllCoockies.js"></script>
+    <scrip src="./../js/functions/CreateAllStatisticsDependencies.js"></scrip>
+    <scrip src="./../js/functions/CreateAllStatisticsDependencies.js"></scrip>
+    <script src="./../js/functions/DismemberDate.js"></script>
+    <script src="./../js/functions/RefreshDailyTasks.js"></script>
+    <script src="./../js/functions/LineBreaker.js"></script>
+    <script src="./../js/functions/enableNotifications.js"></script>
+    <script src="./../js/functions/Notifications.js"></script>
+    <script src="./../js/functions/DateHigher.js"></script>
+    <script src="./../js/functions/FindDelayedTasks.js"></script>
+    <script src="./../js/functions/CreateAtask.js"></script>
+    <script src="./../js/functions/LoadTasks.js"></script>
+    <script src="./../js/functions/dateFormat.js"></script>
+    <script src="./../js/DelayScript.js"></script>
+    <script src="./../js/functions/RemoveTask.js"></script>
+    <script>
+        function config(){
+            window.localStorage.removeItem("SchoolTasks")
+        }
+        function remove(Completed){
+            if(selectedTask != null){
+                let tasksss = taskList.getElementsByClassName("Task")
+                let i = 0
+                let len = tasksss.length 
+                let success = false
+                while(i < len){
+                    let target = tasksss[i].getElementsByClassName("identificador")[0]
+                    if(target.getAttribute("id") == selectedTask){
+                        let Statistics = JSON.parse(window.localStorage.getItem("Statistics"))
+                    if(Completed == true){
+                        Statistics.DelayedCompleted += 1
+                        Statistics.CompletedTasks += 1
+                        window.alert("oiiii")
+                    }
+                    if(Completed == false){
+                        Statistics.ExcludedTasks += 1
+                    }
+                    window.localStorage.setItem("Statistics", JSON.stringify(Statistics))
+                        tasksss[i].remove()
+                        removeAtask(window.localStorage.getItem("SchoolTasks"), 0 , taskList, "School")
+                        success = true
+                        break
+                    }
+                    i++
+                }
+                if(success == false){
+                    window.alert("Houve um erro ao deletar a Task")
+                }
+                
+            }
+            else{
+                window.alert("Selecione uma Task primeiro!")
+            }
+            
+            
+        }
+        setTimeout(function(){
+                if(Notification.permission == "default"){
+                var NotificationPlace = document.getElementById("TurnOnNotifications")
+                NotificationPlace.style.display = "inline"
+            }
+        },1000)
+        SendNotifications()
+    </script>
+
+
+</body>
+</html>

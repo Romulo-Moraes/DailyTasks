@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task's Day</title>
+    <link rel="stylesheet" href="./../css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+    <link rel="icon" href="./../images/Task's Manager Icon.jpg">
+</head>
+<body>
+    <div id="dad">
+        <div id="HubsPlace">
+            <div class="Hubs" onclick="window.location.href = '/School'"><p>Escolar</p></div>
+            <div class="Hubs" onclick="window.location.href = '/Personal'"><p>Pessoal</p></div>
+            <div class="Hubs" onclick="window.location.href = '/Daily'"><p>Diárias</p></div>
+            <div class="Hubs" onclick="window.location.replace('/Delay')"><p>Em atraso</p></div>
+            <div class="Hubs" onclick="window.location.replace('/Statistics')"><p>Estátisticas</p></div>
+        </div>
+        <div id="WellComeMessage">
+            <div id="alignMessage">
+                <h1>Bem-Vindo ao Task Manager</h1>
+                <div class="toCenter">
+                    <p>Sinta-se livre para escolher quais tipos de tasks você quer</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="./../js/functions/Notifications.js"></script>
+    <script src="./../js/functions/CreateAllStatisticsDependencies.js"></script>
+    <script>
+        let VerifyDelayedTasks = JSON.parse(window.localStorage.getItem("DelayedSchoolTasks"))
+        if(VerifyDelayedTasks.DelayedSchoolTasks.length > 0){
+            let beRed = document.getElementsByClassName("Hubs")[3]
+            beRed.style.backgroundColor = "red"
+        }
+        let VerifyDelayedPersonalTasks = JSON.parse(window.localStorage.getItem("DelayedPersonalTask"))
+        if(VerifyDelayedPersonalTasks.DelayedPersonalTask.length > 0){
+            let beRed = document.getElementsByClassName("Hubs")[3]
+            beRed.style.backgroundColor = "red"
+        }
+        let VerifyDelayedDailyTasks = JSON.parse(window.localStorage.getItem("DelayedDailyTask"))
+        if(VerifyDelayedDailyTasks.DelayedDailyTask.length > 0){
+            let beRed = document.getElementsByClassName("Hubs")[3]
+            beRed.style.backgroundColor = "red"
+        }
+        SendNotifications()
+        
+    </script>
+</body>
+</html>
